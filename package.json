@@ -9,7 +9,8 @@
     "react-scripts": "0.9.5"
   },
   "devDependencies": {
-    "@testing-library/react": "^8.0.1"
+    "@testing-library/react": "^8.0.1",
+    "husky": "^2.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
