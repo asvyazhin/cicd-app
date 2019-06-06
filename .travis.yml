@@ -13,10 +13,10 @@ deploy:
   on:
     branch: master
   provider: s3
-  access_key_id: "AKIAULEVJ7ELWOXS7T4C"
-  secret_access_key: "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"
-  bucket: "S3 Bucket"
-  region: "us-east-1"
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: "www.svyazhin.com"
+  region: $AWS_DEFAULT_REGION
   skip_cleanup: true
   local_dir: build
   detect_encoding: true
@@ -26,4 +26,4 @@ after_deploy:
   # Allow `awscli` to make requests to CloudFront.
   - aws configure set preview.cloudfront true
   # Invalidate every object in the targeted distribution.
-  - aws cloudfront create-invalidation --distribution-id E1J32G1NKE718D --paths "/*"
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
