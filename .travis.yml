@@ -9,3 +9,16 @@ cache:
 script:
   - npm run build
   - npm test
+deploy:
+  provider: s3
+  access_key_id: "AKIAULEVJ7ELWOXS7T4C"
+  secret_access_key: "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"
+  bucket: "S3 Bucket"
+  region: us-east-1
+  skip_cleanup: true
+  local_dir: build
+  detect_encoding: true
+  default_text_charset: "utf-8"
+  dot_match: trueon:
+  on:
+    branch: master
