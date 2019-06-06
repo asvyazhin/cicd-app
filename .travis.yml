@@ -10,6 +10,8 @@ script:
   - npm run build
   - npm test
 deploy:
+  on:
+    branch: master
   provider: s3
   access_key_id: "AKIAULEVJ7ELWOXS7T4C"
   secret_access_key: "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"
@@ -20,5 +22,8 @@ deploy:
   detect_encoding: true
   default_text_charset: "utf-8"
   dot_match: trueon:
-  on:
-    branch: master
+after_deploy:
+  # Allow `awscli` to make requests to CloudFront.
+  - aws configure set preview.cloudfront true
+  # Invalidate every object in the targeted distribution.
+  - aws cloudfront create-invalidation --distribution-id E1J32G1NKE718D --paths "/*"
