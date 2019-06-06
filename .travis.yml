@@ -16,12 +16,12 @@ deploy:
   access_key_id: "AKIAULEVJ7ELWOXS7T4C"
   secret_access_key: "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"
   bucket: "S3 Bucket"
-  region: us-east-1
+  region: "us-east-1"
   skip_cleanup: true
   local_dir: build
   detect_encoding: true
   default_text_charset: "utf-8"
-  dot_match: trueon:
+  dot_match: true
 after_deploy:
   # Allow `awscli` to make requests to CloudFront.
   - aws configure set preview.cloudfront true
