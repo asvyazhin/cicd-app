@@ -22,3 +22,43 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.container {
+  display: grid;
+  grid-template-columns: [bodyCol-start] auto [bodyCol-end] 150px [sidebarCol-end];
+  grid-template-rows: [headerRow-start] auto [headerRow-end] auto [foolterRow-start] 100px [foolterRow-end];
+}
+
+.header {
+  grid-column-start: bodyCol-start;
+  grid-column-end: bodyCol-end;
+  grid-row-start: headerRow-start;
+  grid-row-end: headerRow-end;
+  justify-self: stretch;
+}
+
+.body {
+  grid-column-start: bodyCol-start;
+  grid-column-end: bodyCol-end;
+  grid-row-start: headerRow-end;
+  grid-row-end: foolterRow-start;
+  justify-self: stretch;
+}
+
+.sidebar {
+  grid-column-start: bodyCol-end;
+  grid-column-end: sidebarCol-end;
+  grid-row-start: headerRow-start;
+  grid-row-end: foolterRow-start;
+  justify-self: stretch;
+  background-color: yellow;
+}
+
+.footer {
+  grid-column-start: bodyCol-start;
+  grid-column-end: sidebarCol-end;
+  grid-row-start: foolterRow-start;
+  grid-row-end: foolterRow-end;
+  justify-self: stretch;
+  background-color: blueviolet;
+}
