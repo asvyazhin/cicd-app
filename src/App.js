@@ -22,7 +22,7 @@ class App extends Component {
         </div>
 
         <div className="sidebar">
-          <h2>Sidebar</h2>
+          <h2>Sidebar1</h2>
         </div>
         <footer className="footer">
           <h2>Footer</h2>
